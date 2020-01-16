@@ -45,9 +45,10 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvPriority"
-        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvTodo"
-        app:layout_constraintTop_toBottomOf="@+id/tvTodo" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTodo"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tvDescription"
@@ -90,8 +91,8 @@
 
     <TextView
         android:id="@+id/priority"
-        android:layout_width="128dp"
-        android:layout_height="16dp"
+        android:layout_width="130dp"
+        android:layout_height="19dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="9dp"
         android:textColor="@color/colorAccent"
@@ -99,5 +100,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvPriority"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.296" />
 </androidx.constraintlayout.widget.ConstraintLayout>

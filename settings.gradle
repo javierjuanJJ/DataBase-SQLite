@@ -1,3 +1,4 @@
-include ':app', ':app_activity1'
+include ':app', ':app_activity1', ':app_activity2'
 rootProject.name='U4T8DataBase'
 project(':app_activity1').projectDir = new File('appactivity1')
+project(':app_activity2').projectDir = new File('appactivity2')
