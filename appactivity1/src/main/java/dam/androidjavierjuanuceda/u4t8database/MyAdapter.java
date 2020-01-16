@@ -1,5 +1,6 @@
 package dam.androidjavierjuanuceda.u4t8database;
 
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +51,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         TextView tvTodo;
         TextView tvToAccomplish;
         TextView tvDescription;
+        TextView tvStatus;
+        TextView priority;
+        Resources resources;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -58,6 +62,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             this.tvTodo = itemView.findViewById(R.id.tvTodo);
             this.tvToAccomplish = itemView.findViewById(R.id.tvtoAccomplish);
             this.tvDescription = itemView.findViewById(R.id.tvDescription);
+            this.tvStatus = itemView.findViewById(R.id.tvStatus);
+            this.priority = itemView.findViewById(R.id.priority);
+            resources = itemView.getResources();
 
         }
 
@@ -66,6 +73,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             this.tvTodo.setText(task.getTodo());
             this.tvToAccomplish.setText(task.getToAccomplish());
             this.tvDescription.setText(task.getDescription());
+            //this.tvStatus.setText(getRegetStringArray(R.array.priorities)[task.getStatus()]);
+
+            this.tvStatus.setText(resources.getStringArray(R.array.priorities)[task.getStatus()]);
+            this.priority.setText(resources.getStringArray(R.array.progresses)[task.getProgress()]);
         }
     }
 

@@ -41,6 +41,8 @@ public class AddTaskActivity extends AppCompatActivity implements AdapterView.On
         spinnerAdapterLevel.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerstatus.setAdapter(spinnerAdapterLevel);
         spinnerstatus.setOnItemSelectedListener(this);
+        option_selected_priorities = 0;
+        option_selected_progress = 0;
     }
 
     public void onClick(View view) {
@@ -62,7 +64,8 @@ public class AddTaskActivity extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        switch (view.getId()) {
+        switch (parent.getId()) {
+
             case R.id.spinnerprority:
                 option_selected_priorities = position;
                 break;
