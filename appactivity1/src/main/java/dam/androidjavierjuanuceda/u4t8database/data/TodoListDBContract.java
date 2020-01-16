@@ -7,6 +7,8 @@ public class TodoListDBContract {
 
     public static class Tasks {
         public static final String TABLE_NAME = "TASKS";
+        public static final String STATUS = "status";
+        public static final String PROGRESS = "progress";
         public static final String _ID = "_id";
         public static final String TODO = "todo";
         public static final String TO_ACCOMPLISH = "to_accomplish";
@@ -18,6 +20,8 @@ public class TodoListDBContract {
                         Tasks._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         Tasks.TODO + " TEXT NOT NULL, " +
                         Tasks.TO_ACCOMPLISH + " TEXT, " +
+                        Tasks.STATUS + " INTEGER, " +
+                        Tasks.PROGRESS + " INTEGER , " +
                         Tasks.DESCRIPTION + " TEXT );";
 
         public static final String DELETE = "DROP TABLE IF EXISTS  " + Tasks.TABLE_NAME;

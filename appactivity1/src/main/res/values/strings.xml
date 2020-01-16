@@ -8,4 +8,6 @@
     <string name="add_task_activity_name">New task</string>
     <string name="name_of_the_task_to_do">Name of the task to do</string>
     <string name="task_name_is_Empty">Task name is Empty</string>
+    <string name="priority">Priority:</string>
+    <string name="status">Status:</string>
 </resources>
