@@ -4,6 +4,7 @@ public class TodoListDBContract {
 
     public static final String DB_NAME = "TODOLIST.DB";
     public static final int DB_VERSION = 1;
+    public static final int ALL_ROWS = -1;
 
     public static class Tasks {
         public static final String TABLE_NAME = "TASKS";

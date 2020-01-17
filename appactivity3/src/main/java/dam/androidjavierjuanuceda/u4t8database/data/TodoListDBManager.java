@@ -58,14 +58,14 @@ public class TodoListDBManager {
         }
     }
 
-    public void delete_by_status(int status) {
+    public void delete_by_status(int option_status) {
 
         SQLiteDatabase sqLiteDatabase = todoListDBHelper.getWritableDatabase();
         if (sqLiteDatabase != null) {
-            if (status == -1) {
+            if (option_status == TodoListDBContract.ALL_ROWS) {
                 sqLiteDatabase.delete(TodoListDBContract.Tasks.TABLE_NAME, null, null);
             } else {
-                sqLiteDatabase.delete(TodoListDBContract.Tasks.TABLE_NAME, TodoListDBContract.Tasks.PROGRESS + "=" + status, null);
+                sqLiteDatabase.delete(TodoListDBContract.Tasks.TABLE_NAME, TodoListDBContract.Tasks.PROGRESS + "=" + option_status, null);
             }
         }
     }
@@ -77,7 +77,7 @@ public class TodoListDBManager {
         if (sqLiteDatabase != null) {
             String[] projection = {TodoListDBContract.Tasks._ID, TodoListDBContract.Tasks.TODO, TodoListDBContract.Tasks.TO_ACCOMPLISH, TodoListDBContract.Tasks.STATUS, TodoListDBContract.Tasks.PROGRESS, TodoListDBContract.Tasks.DESCRIPTION};
 
-            if (option_status == -1) {
+            if (option_status == TodoListDBContract.ALL_ROWS) {
                 cursorTodoList = sqLiteDatabase.query(TodoListDBContract.Tasks.TABLE_NAME, projection, null, null, null, null, null);
             } else {
                 String selection = TodoListDBContract.Tasks.PROGRESS + " =?";
@@ -94,8 +94,7 @@ public class TodoListDBManager {
                     int descriptionIndex = cursorTodoList.getColumnIndexOrThrow(TodoListDBContract.Tasks.DESCRIPTION);
                     int status = cursorTodoList.getColumnIndexOrThrow(TodoListDBContract.Tasks.STATUS);
                     int progress = cursorTodoList.getColumnIndexOrThrow(TodoListDBContract.Tasks.PROGRESS);
-                    Task task = new Task(cursorTodoList.getInt(_idIndex), cursorTodoList.getString(todoIndex), cursorTodoList.getString(_toAccomplishIndex), cursorTodoList.getString(descriptionIndex), cursorTodoList.getInt(status), cursorTodoList.getInt(progress));
-                    tasks.add(task);
+                    tasks.add(new Task(cursorTodoList.getInt(_idIndex), cursorTodoList.getString(todoIndex), cursorTodoList.getString(_toAccomplishIndex), cursorTodoList.getString(descriptionIndex), cursorTodoList.getInt(status), cursorTodoList.getInt(progress)));
                 }
             }
             cursorTodoList.close();
