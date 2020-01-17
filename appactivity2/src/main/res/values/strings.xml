@@ -6,6 +6,7 @@
     <string name="to_finish_when">To finish when?</string>
     <string name="describe_the_task">Describe the task</string>
     <string name="add_task_activity_name">New task</string>
+    <string name="edit_task_activity_name">Edit task</string>
     <string name="name_of_the_task_to_do">Name of the task to do</string>
     <string name="task_name_is_Empty">Task name is Empty</string>
     <string name="priority">Priority:</string>

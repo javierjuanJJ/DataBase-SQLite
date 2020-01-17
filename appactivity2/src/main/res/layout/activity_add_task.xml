@@ -2,10 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:padding="16dp"
     tools:context=".AddTaskActivity">
+
 
     <EditText
         android:id="@+id/etTodo"
@@ -104,5 +106,25 @@
         app:layout_constraintStart_toStartOf="@+id/tvstatus"
         app:layout_constraintTop_toBottomOf="@+id/tvstatus"
         app:layout_constraintVertical_bias="0.45" />
+
+    <Button
+        android:id="@+id/btDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonOK"
+        app:layout_constraintEnd_toStartOf="@+id/buttonOK"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonOK" />
+
+    <Button
+        android:id="@+id/btSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonOK"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonOK"
+        app:layout_constraintTop_toTopOf="@+id/buttonOK" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

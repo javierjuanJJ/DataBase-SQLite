@@ -18,19 +18,6 @@ public class TodoListDBManager {
         this.todoListDBHelper = TodoListDBHelper.getInstance(context);
     }
 
-    public void insert(String todo, String when, String description) {
-
-        SQLiteDatabase sqLiteDatabase = todoListDBHelper.getWritableDatabase();
-
-        if (sqLiteDatabase != null) {
-            ContentValues contentValue = new ContentValues();
-            contentValue.put(TodoListDBContract.Tasks.TODO, todo);
-            contentValue.put(TodoListDBContract.Tasks.TO_ACCOMPLISH, when);
-            contentValue.put(TodoListDBContract.Tasks.DESCRIPTION, description);
-            sqLiteDatabase.insert(TodoListDBContract.Tasks.TABLE_NAME, null, contentValue);
-        }
-    }
-
     public void insert(String todo, String when, String description, int status, int progress) {
 
         SQLiteDatabase sqLiteDatabase = todoListDBHelper.getWritableDatabase();
@@ -43,6 +30,31 @@ public class TodoListDBManager {
             contentValue.put(TodoListDBContract.Tasks.STATUS, status);
             contentValue.put(TodoListDBContract.Tasks.PROGRESS, progress);
             sqLiteDatabase.insert(TodoListDBContract.Tasks.TABLE_NAME, null, contentValue);
+        }
+    }
+
+    public void update(int id, String todo, String when, String description, int status, int progress) {
+
+        SQLiteDatabase sqLiteDatabase = todoListDBHelper.getWritableDatabase();
+
+        if (sqLiteDatabase != null) {
+
+            ContentValues contentValue = new ContentValues();
+            contentValue.put(TodoListDBContract.Tasks.TODO, todo);
+            contentValue.put(TodoListDBContract.Tasks.TO_ACCOMPLISH, when);
+            contentValue.put(TodoListDBContract.Tasks.DESCRIPTION, description);
+            contentValue.put(TodoListDBContract.Tasks.STATUS, status);
+            contentValue.put(TodoListDBContract.Tasks.PROGRESS, progress);
+            sqLiteDatabase.update(TodoListDBContract.Tasks.TABLE_NAME, contentValue, TodoListDBContract.Tasks._ID + "=" + id, null);
+        }
+    }
+
+    public void delete(int id) {
+
+        SQLiteDatabase sqLiteDatabase = todoListDBHelper.getWritableDatabase();
+
+        if (sqLiteDatabase != null) {
+            sqLiteDatabase.delete(TodoListDBContract.Tasks.TABLE_NAME, TodoListDBContract.Tasks._ID + "=" + id, null);
         }
     }
 
