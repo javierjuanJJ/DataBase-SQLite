@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    tools:context=".AddTaskActivity">
+
+
+    <EditText
+        android:id="@+id/etTodo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="25"
+        android:hint="@string/name_of_the_task_to_do"
+        android:maxLength="25"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></EditText>
+
+
+    <EditText
+        android:id="@+id/etToAccomplish"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/to_finish_when"
+        android:maxLength="50"
+        app:layout_constraintBottom_toTopOf="@+id/etDescription"
+        app:layout_constraintEnd_toEndOf="@id/etTodo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/etTodo"
+        app:layout_constraintTop_toBottomOf="@+id/etTodo"
+        app:layout_constraintVertical_bias="0.0"></EditText>
+
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:hint="@string/describe_the_task"
+        android:maxLength="100"
+        app:layout_constraintBottom_toTopOf="@+id/buttonOK"
+        app:layout_constraintEnd_toEndOf="@+id/etToAccomplish"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etToAccomplish"
+        app:layout_constraintTop_toBottomOf="@+id/etTodo"
+        app:layout_constraintVertical_bias="1.0"></EditText>
+
+    <Button
+        android:id="@+id/buttonOK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="@string/ok"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/etDescription"
+        app:layout_constraintVertical_bias="0.22000003"></Button>
+
+    <TextView
+        android:id="@+id/tvprority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/priority"
+        app:layout_constraintBottom_toTopOf="@+id/etDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etToAccomplish"
+        app:layout_constraintVertical_bias="0.19999999" />
+
+    <TextView
+        android:id="@+id/tvstatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/status"
+        app:layout_constraintBottom_toTopOf="@+id/etDescription"
+        app:layout_constraintEnd_toEndOf="@+id/etToAccomplish"
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toEndOf="@+id/tvprority"
+        app:layout_constraintTop_toBottomOf="@+id/etToAccomplish"
+        app:layout_constraintVertical_bias="0.24000001" />
+
+    <Spinner
+        android:id="@+id/spinnerprority"
+        android:layout_width="118dp"
+        android:layout_height="22dp"
+        app:layout_constraintBottom_toTopOf="@+id/etDescription"
+        app:layout_constraintEnd_toEndOf="@+id/tvprority"
+        app:layout_constraintStart_toStartOf="@+id/tvprority"
+        app:layout_constraintTop_toBottomOf="@+id/tvprority"
+        app:layout_constraintVertical_bias="0.47000003" />
+
+    <Spinner
+        android:id="@+id/spinnerstatus"
+        android:layout_width="136dp"
+        android:layout_height="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/etDescription"
+        app:layout_constraintEnd_toEndOf="@+id/tvstatus"
+        app:layout_constraintStart_toStartOf="@+id/tvstatus"
+        app:layout_constraintTop_toBottomOf="@+id/tvstatus"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <Button
+        android:id="@+id/btDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonOK"
+        app:layout_constraintEnd_toStartOf="@+id/buttonOK"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonOK" />
+
+    <Button
+        android:id="@+id/btSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonOK"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonOK"
+        app:layout_constraintTop_toTopOf="@+id/buttonOK" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

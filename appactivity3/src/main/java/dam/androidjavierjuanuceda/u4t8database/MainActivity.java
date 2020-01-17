@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.Arrays;
+
 import dam.androidjavierjuanuceda.u4t8database.data.TodoListDBManager;
 import dam.androidjavierjuanuceda.u4t8database.model.Task;
 
@@ -35,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnItemC
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), AddTaskActivity.class)));
         rvTodoList = findViewById(R.id.rvTodoList);
@@ -54,28 +55,41 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnItemC
     @Override
     protected void onResume() {
         super.onResume();
-        myAdapter.getData();
+        myAdapter.getData(-1);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        String[] progresses = getResources().getStringArray(R.array.progresses);
+        int progress;
+        String separator;
+        switch (item.getItemId()) {
+            case R.id.option_not_stared:
+            case R.id.option_in_progress:
+            case R.id.option_completed:
+            case R.id.option_all_tasks:
+                separator = item.getTitle().toString().split(getString(R.string.show) + " ")[1];
+                progress = Arrays.asList(progresses).indexOf(separator);
+                myAdapter.getData(progress);
+                break;
+            case R.id.option_delete_all:
+            case R.id.option_delete_completed:
+                separator = item.getTitle().toString().split(getString(R.string.delete) + " ")[1];
+                progress = Arrays.asList(progresses).indexOf(separator);
+                todoListDBManager.delete_by_status(progress);
+                myAdapter.getData(-1);
+                break;
+            default:
+                break;
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
         }
-
+        rvTodoList.setAdapter(myAdapter);
         return super.onOptionsItemSelected(item);
     }
 

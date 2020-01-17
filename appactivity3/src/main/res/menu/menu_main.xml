@@ -1,0 +1,57 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="dam.androidjavierjuanuceda.u4t8database.MainActivity">
+    <item
+        android:id="@+id/option_status"
+        android:icon="@android:drawable/ic_search_category_default"
+        android:title=""
+        app:showAsAction="always">
+
+
+        <menu>
+            <item
+                android:id="@+id/option_not_stared"
+                android:title="@string/show_not_started"
+                app:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/option_in_progress"
+                android:title="@string/show_in_progress"
+                app:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/option_completed"
+                android:title="@string/show_completed"
+                app:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/option_all_tasks"
+                android:title="@string/show_all_tasks"
+                app:showAsAction="ifRoom" />
+
+        </menu>
+
+    </item>
+
+    <item
+        android:id="@+id/option_eliminate"
+        android:icon="@android:drawable/ic_delete"
+        android:title=""
+        app:showAsAction="always">
+
+
+        <menu>
+            <item
+                android:id="@+id/option_delete_completed"
+                android:title="@string/delete_completed"
+                app:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/option_delete_all"
+                android:title="@string/delete_all"
+                app:showAsAction="ifRoom" />
+
+        </menu>
+    </item>
+</menu>
