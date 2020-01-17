@@ -38,54 +38,57 @@
 
     <EditText
         android:id="@+id/etDescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_width="310dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="10dp"
         android:hint="@string/describe_the_task"
         android:maxLength="100"
         app:layout_constraintBottom_toTopOf="@+id/buttonOK"
         app:layout_constraintEnd_toEndOf="@+id/etToAccomplish"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintStart_toStartOf="@+id/etToAccomplish"
         app:layout_constraintTop_toBottomOf="@+id/etTodo"
-        app:layout_constraintVertical_bias="1.0"></EditText>
+        app:layout_constraintVertical_bias="0.73"></EditText>
 
     <Button
         android:id="@+id/buttonOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
         android:onClick="onClick"
         android:text="@string/ok"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/etDescription"
-        app:layout_constraintVertical_bias="0.22000003"></Button>
+        app:layout_constraintTop_toBottomOf="@+id/etDescription"></Button>
 
     <TextView
         android:id="@+id/tvprority"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/priority"
+        android:textColor="@color/colorNegro"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/etDescription"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etToAccomplish"
-        app:layout_constraintVertical_bias="0.19999999" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tvstatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/status"
+        android:textColor="@color/colorNegro"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/etDescription"
         app:layout_constraintEnd_toEndOf="@+id/etToAccomplish"
-        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toEndOf="@+id/tvprority"
         app:layout_constraintTop_toBottomOf="@+id/etToAccomplish"
-        app:layout_constraintVertical_bias="0.24000001" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
         android:id="@+id/spinnerprority"
@@ -93,37 +96,39 @@
         android:layout_height="22dp"
         app:layout_constraintBottom_toTopOf="@+id/etDescription"
         app:layout_constraintEnd_toEndOf="@+id/tvprority"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvprority"
         app:layout_constraintTop_toBottomOf="@+id/tvprority"
-        app:layout_constraintVertical_bias="0.47000003" />
+        app:layout_constraintVertical_bias="0.096" />
 
     <Spinner
         android:id="@+id/spinnerstatus"
-        android:layout_width="136dp"
-        android:layout_height="26dp"
+        android:layout_width="161dp"
+        android:layout_height="22dp"
         app:layout_constraintBottom_toTopOf="@+id/etDescription"
         app:layout_constraintEnd_toEndOf="@+id/tvstatus"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvstatus"
         app:layout_constraintTop_toBottomOf="@+id/tvstatus"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/delete"
         app:layout_constraintBottom_toBottomOf="@+id/buttonOK"
         app:layout_constraintEnd_toStartOf="@+id/buttonOK"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/etDescription"
         app:layout_constraintTop_toTopOf="@+id/buttonOK" />
 
     <Button
         android:id="@+id/btSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="@+id/buttonOK"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/etDescription"
         app:layout_constraintStart_toEndOf="@+id/buttonOK"
         app:layout_constraintTop_toTopOf="@+id/buttonOK" />
 
